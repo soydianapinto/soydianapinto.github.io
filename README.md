@@ -82,6 +82,8 @@ deployment source:
 
 **Settings → Pages → Build and deployment → Source → GitHub Actions**
 
+If GitHub runs `actions/jekyll-build-pages@v1` or the `pages-build-deployment` workflow, the repository is still configured to deploy from a branch. Change the Pages source to **GitHub Actions** and disable any branch-based Pages deployment. The Astro workflow above is the only workflow that should publish this site.
+
 ## Documentation
 
 - [Astro documentation](https://docs.astro.build)
