@@ -1,0 +1,89 @@
+# soydianapinto.github.io
+
+Personal link tree website for Diana Pinto, built with Astro and Tailwind CSS.
+The interface uses a minimal dark theme inspired by terminal interfaces and
+developer-focused websites.
+
+## Features
+
+- Mobile-first and responsive design.
+- Static [LinkTree](./src/components/LinkTree.astro) component.
+- Links to LinkedIn, AWS Community Builder, Women Who Code, Next Review, and
+  Dieciséis Brew.
+- No client-side JavaScript.
+- Automatic deployment to GitHub Pages after every `push` to `main`.
+
+## Requirements
+
+- Node.js `>=22.12.0`
+- npm
+
+## Local development
+
+Install the dependencies:
+
+```sh
+npm install
+```
+
+Start the development server:
+
+```sh
+npm run dev
+```
+
+The site will be available at `http://localhost:4321`.
+
+## Available commands
+
+| Command | Description |
+| --- | --- |
+| `npm install` | Install the project's dependencies. |
+| `npm run dev` | Start the local development server. |
+| `npm run build` | Generate the static site in `dist/`. |
+| `npm run preview` | Serve the production build locally. |
+| `npm run astro ...` | Run Astro CLI commands. |
+
+## Project structure
+
+```text
+.
+├── .github/
+│   └── workflows/
+│       └── deploy.yml       # GitHub Pages workflow
+├── public/                  # Static assets
+├── src/
+│   ├── components/
+│   │   └── LinkTree.astro   # Profile and links list
+│   ├── pages/
+│   │   └── index.astro      # Main page
+│   └── styles/
+│       └── global.css       # Tailwind and base styles
+├── astro.config.mjs
+├── package.json
+└── tsconfig.json
+```
+
+## Deployment
+
+The [deploy.yml](./.github/workflows/deploy.yml) workflow runs automatically in
+GitHub Actions whenever a `push` is made to the `main` branch.
+
+The pipeline:
+
+1. Sets up Node.js 22.
+2. Installs dependencies with `npm install`.
+3. Runs `npm run build`.
+4. Uploads the `dist/` directory as a Pages artifact.
+5. Publishes the artifact to GitHub Pages.
+
+In the repository settings, GitHub Pages must use **GitHub Actions** as the
+deployment source:
+
+**Settings → Pages → Build and deployment → Source → GitHub Actions**
+
+## Documentation
+
+- [Astro documentation](https://docs.astro.build)
+- [Tailwind CSS documentation](https://tailwindcss.com/docs)
+- [GitHub Pages documentation](https://docs.github.com/en/pages)

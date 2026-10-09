@@ -1,0 +1,78 @@
+---
+const links = [
+	{
+		label: 'LinkedIn',
+		description: 'Conecta conmigo profesionalmente',
+		href: 'https://www.linkedin.com/in/soydianapinto/',
+	},
+	{
+		label: 'AWS Community Builder',
+		description: 'Perfil de la comunidad AWS',
+		href: 'https://builder.aws.com/community/@soydianapinto/',
+	},
+	{
+		label: 'Mentorías via Paypal',
+		description: 'Acompañamiento en tecnología',
+		href: 'https://www.paypal.com/ncp/payment/S9PN3T8F3NJVJ/',
+	},
+	{
+		label: 'Next Review',
+		description: 'Open source tool',
+		href: 'https://github.com/soydianapinto/nextreview/',
+	},
+	{
+		label: 'Brutal. Cold Brew',
+		description: 'Café, comunidad y buenas conversaciones',
+		href: 'https://brutalbrew-p2sj.vercel.app/',
+	},
+];
+---
+
+<main class="flex min-h-screen items-center justify-center bg-zinc-950 px-5 py-12 text-zinc-100 sm:px-8">
+	<section class="w-full max-w-lg" aria-labelledby="profile-name">
+		<header class="mb-8 text-center">
+			<div
+				class="mx-auto mb-5 flex size-24 items-center justify-center rounded-full border border-emerald-400/30 bg-zinc-900 font-mono text-2xl font-bold text-emerald-300 shadow-[0_0_45px_rgba(52,211,153,0.12)]"
+				role="img"
+				aria-label="Avatar de Diana Pinto"
+			>
+				DP
+			</div>
+			<p class="mb-2 font-mono text-sm tracking-wide text-emerald-400">~/profile</p>
+			<h1 id="profile-name" class="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+				Diana Pinto
+			</h1>
+			<p class="mt-2 font-mono text-sm text-zinc-400">@soydianapinto</p>
+			<p class="mt-4 text-sm text-zinc-300 sm:text-base">Full-Stack Engineer &amp; Tech Content Creator</p>
+		</header>
+
+		<nav aria-label="Enlaces de Diana Pinto">
+			<ul class="space-y-3">
+				{links.map((link) => (
+					<li>
+						<a
+							class="group flex min-h-16 items-center justify-between rounded-xl border border-zinc-800 bg-zinc-900/80 px-5 py-3.5 transition duration-200 hover:-translate-y-0.5 hover:border-emerald-400/60 hover:bg-zinc-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400"
+							href={link.href}
+							target="_blank"
+							rel="noreferrer"
+						>
+							<span>
+								<span class="block font-medium text-zinc-100 transition-colors group-hover:text-emerald-300">
+									{link.label}
+								</span>
+								<span class="mt-1 block text-xs text-zinc-500">{link.description}</span>
+							</span>
+							<span class="ml-4 font-mono text-lg text-zinc-600 transition group-hover:translate-x-1 group-hover:text-emerald-400" aria-hidden="true">
+								&rarr;
+							</span>
+						</a>
+					</li>
+				))}
+			</ul>
+		</nav>
+
+		<footer class="mt-10 text-center font-mono text-xs text-zinc-600">
+			<span aria-hidden="true">[</span> building in public <span aria-hidden="true">]</span>
+		</footer>
+	</section>
+</main>
