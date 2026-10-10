@@ -1,0 +1,55 @@
+---
+const socialLinks = [
+	{
+		label: 'Instagram',
+		icon: 'instagram',
+		href: 'https://www.instagram.com/soydianapinto/',
+	},
+	{
+		label: 'Facebook',
+		icon: 'facebook',
+		href: 'https://www.facebook.com/soydianapinto/',
+	},
+	{
+		label: 'LinkedIn',
+		src: '/linkedin.svg',
+		href: 'https://www.linkedin.com/in/soydianapinto/',
+	},
+	{
+		label: 'YouTube',
+		icon: 'youtube',
+		href: 'https://www.youtube.com/channel/UCcCb2sTaPgF4Cq7K17p4N3A',
+	},
+	{
+		label: 'TikTok',
+		icon: 'tiktok',
+		href: 'https://www.tiktok.com/@soydianapinto',
+	},
+	{
+		label: 'GitHub',
+		icon: 'github',
+		href: 'https://github.com/soydianapinto',
+	},
+];
+---
+
+<nav class="mb-8 flex items-center justify-center gap-4" aria-label="Redes sociales">
+	{socialLinks.map((social) => (
+		<a
+			class="rounded-full p-1.5 opacity-65 transition duration-200 hover:-translate-y-0.5 hover:bg-white/40 hover:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4f7059]"
+			href={social.href}
+			target="_blank"
+			rel="noreferrer"
+			aria-label={social.label}
+		>
+			<img
+				class="size-5"
+				src={social.src ?? `https://cdn.simpleicons.org/${social.icon}/292826`}
+				alt=""
+				width="20"
+				height="20"
+				loading="lazy"
+			/>
+		</a>
+	))}
+</nav>

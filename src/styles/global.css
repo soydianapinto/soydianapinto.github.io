@@ -7,13 +7,13 @@
 
 @layer base {
 	html {
-		background: #09090b;
+		background: #a89582;
 	}
 
 	body {
 		margin: 0;
-		background: #09090b;
-		color: #f4f4f5;
+		background: #a89582;
+		color: #242321;
 		font-family: var(--font-sans);
 	}
 }

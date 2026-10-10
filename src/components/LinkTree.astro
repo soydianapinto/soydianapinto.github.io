@@ -1,11 +1,12 @@
 ---
 import FollowerBadge from './FollowerBadge.astro';
+import SocialLinks from './SocialLinks.astro';
 
 const links = [
 	{
-		label: 'LinkedIn',
-		description: 'Conecta conmigo profesionalmente',
-		href: 'https://www.linkedin.com/in/soydianapinto/',
+		label: 'Colaboraciones y campañas',
+		description: 'Contacto para marcas',
+		href: 'mailto:depa.apolinar@gmail.com?subject=Colaboraci%C3%B3n%20con%20Diana%20Pinto',
 	},
 	{
 		label: 'AWS Community Builder',
@@ -13,63 +14,60 @@ const links = [
 		href: 'https://builder.aws.com/community/@soydianapinto/',
 	},
 	{
-		label: 'Mentorías via Paypal',
+		label: 'Mentorías / Tutorías',
 		description: 'Acompañamiento en tecnología',
 		href: 'https://www.paypal.com/ncp/payment/S9PN3T8F3NJVJ/',
 	},
 	{
 		label: 'Next Review',
-		description: 'Open source tool',
+		description: 'Herramienta de código abierto',
 		href: 'https://github.com/soydianapinto/nextreview/',
 	},
-	{
-		label: 'Brutal. Cold Brew',
-		description: 'Café, comunidad y buenas conversaciones',
-		href: 'https://brutalbrew-p2sj.vercel.app/',
-	},
-	{
-		label: 'Colaboraciones y campañas',
-		description: 'Contacto para marcas',
-		href: 'mailto:depa.apolinar@gmail.com?subject=Colaboraci%C3%B3n%20con%20Diana%20Pinto',
-	},
+	// TODO: Restore the Cold Brew link once the business is more established.
 ];
 ---
 
-<main class="flex min-h-screen items-center justify-center bg-zinc-950 px-5 py-12 text-zinc-100 sm:px-8">
-	<section class="w-full max-w-lg" aria-labelledby="profile-name">
+<main class="flex min-h-screen items-center justify-center bg-[#a89582] px-4 py-8 text-[#242321] sm:px-8 sm:py-12">
+	<section
+		class="w-full max-w-lg rounded-3xl border border-[#b9a897]/70 bg-[#d8d0c3]/65 p-5 shadow-xl shadow-[#6f665a]/25 backdrop-blur-xl sm:p-8"
+		aria-labelledby="profile-name"
+	>
 		<header class="mb-8 text-center">
 			<img
-				class="mx-auto mb-5 size-24 rounded-full border border-emerald-400/30 object-cover shadow-[0_0_45px_rgba(52,211,153,0.12)]"
+				class="mx-auto mb-5 size-24 rounded-full border border-[#d6d0c6] object-cover shadow-[0_0_30px_rgba(111,102,90,0.16)]"
 				src="/profile.jpg"
 				alt="Foto de perfil de Diana Pinto"
 				width="96"
 				height="96"
 			/>
-			<h1 id="profile-name" class="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+			<h1 id="profile-name" class="text-2xl font-bold tracking-tight text-[#242321] sm:text-3xl">
 				Diana Pinto
 			</h1>
-			<p class="mt-2 font-mono text-sm text-zinc-400">@soydianapinto</p>
-			<p class="mt-4 text-sm text-zinc-300 sm:text-base">Ingeniera Full-Stack &amp; Creadora de Contenido Tech</p>
-			<FollowerBadge />
+			<p class="mt-2 font-mono text-sm text-[#756f67]">@soydianapinto</p>
+			<p class="mt-4 text-sm text-[#5a4638] sm:text-base">Ingeniera Full-Stack &amp; Creadora de Contenido Tech</p>
+			<!-- TODO: Restore FollowerBadge once the follower API integration is complete. -->
+			<!-- <FollowerBadge /> -->
 		</header>
+
+		<SocialLinks />
 
 		<nav aria-label="Enlaces de Diana Pinto">
 			<ul class="space-y-3">
 				{links.map((link) => (
 					<li>
 						<a
-							class="group flex min-h-16 items-center justify-between rounded-xl border border-zinc-800 bg-zinc-900/80 px-5 py-3.5 transition duration-200 hover:-translate-y-0.5 hover:border-emerald-400/60 hover:bg-zinc-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400"
+							class="group flex min-h-16 items-center justify-between rounded-full border border-white/65 bg-white/45 px-5 py-3.5 text-[#292826] shadow-sm backdrop-blur-md transition duration-200 hover:-translate-y-0.5 hover:border-white/90 hover:bg-white/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4f7059]"
 							href={link.href}
 							target="_blank"
 							rel="noreferrer"
 						>
 							<span>
-								<span class="block font-medium text-zinc-100 transition-colors group-hover:text-emerald-300">
+								<span class="block font-medium text-[#292826] transition-colors group-hover:text-[#1f2d23]">
 									{link.label}
 								</span>
-								<span class="mt-1 block text-xs text-zinc-500">{link.description}</span>
+								<span class="mt-1 block text-xs text-[#625d56]">{link.description}</span>
 							</span>
-							<span class="ml-4 font-mono text-lg text-zinc-600 transition group-hover:translate-x-1 group-hover:text-emerald-400" aria-hidden="true">
+							<span class="ml-4 font-mono text-lg text-[#756f67] transition group-hover:translate-x-1 group-hover:text-[#4f7059]" aria-hidden="true">
 								&rarr;
 							</span>
 						</a>
@@ -77,9 +75,5 @@ const links = [
 				))}
 			</ul>
 		</nav>
-
-		<footer class="mt-10 text-center font-mono text-xs text-zinc-600">
-			<span aria-hidden="true">[</span> building in public <span aria-hidden="true">]</span>
-		</footer>
 	</section>
 </main>
