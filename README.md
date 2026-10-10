@@ -1,6 +1,6 @@
 # soydianapinto.github.io
 
-Personal link tree website for Diana Pinto, built with Astro and Tailwind CSS.
+Personal website for Diana Pinto, built with Astro and Tailwind CSS.
 The interface uses a minimal dark theme inspired by terminal interfaces and
 developer-focused websites.
 
@@ -11,6 +11,7 @@ developer-focused websites.
 - Links to LinkedIn, AWS Community Builder, Women Who Code, Next Review, and
   Dieciséis Brew.
 - No client-side JavaScript.
+- Static follower total aggregated from seven social networks at build time.
 - Automatic deployment to GitHub Pages after every `push` to `main`.
 
 ## Requirements
@@ -73,9 +74,29 @@ The pipeline:
 
 1. Sets up Node.js 22.
 2. Installs dependencies with `npm install`.
-3. Runs `npm run build`.
-4. Uploads the `dist/` directory as a Pages artifact.
-5. Publishes the artifact to GitHub Pages.
+3. Provides the social network tokens from GitHub Repository Secrets to the build
+   step.
+4. Runs `npm run build`, which fetches and aggregates follower counts into the
+   generated HTML.
+5. Uploads the `dist/` directory as a Pages artifact.
+6. Publishes the artifact to GitHub Pages.
+
+The daily scheduled build runs at midnight UTC. Add these repository secrets
+under **Settings → Secrets and variables → Actions**:
+
+`INSTAGRAM_TOKEN`, `FACEBOOK_TOKEN`, `THREADS_TOKEN`, `X_TOKEN`,
+`LINKEDIN_TOKEN`, `YOUTUBE_TOKEN`, and `TIKTOK_TOKEN`.
+
+The follower integrations are intentionally marked with `TODO` items until the
+real account IDs, endpoint contracts, permissions, and provider-specific
+response parsers are confirmed.
+
+Replace the placeholder endpoints in
+[FollowerBadge.astro](./src/components/FollowerBadge.astro) with the real API
+endpoints. Each endpoint should return a JSON object containing a numeric
+`followers`, `followers_count`, `data.followers`, or
+`data.public_metrics.followers_count` property. If one API fails, its result is
+ignored and the other successful counts are still aggregated.
 
 In the repository settings, GitHub Pages must use **GitHub Actions** as the
 deployment source:

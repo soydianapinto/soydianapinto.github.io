@@ -1,4 +1,6 @@
 ---
+import FollowerBadge from './FollowerBadge.astro';
+
 const links = [
 	{
 		label: 'LinkedIn',
@@ -31,19 +33,19 @@ const links = [
 <main class="flex min-h-screen items-center justify-center bg-zinc-950 px-5 py-12 text-zinc-100 sm:px-8">
 	<section class="w-full max-w-lg" aria-labelledby="profile-name">
 		<header class="mb-8 text-center">
-			<div
-				class="mx-auto mb-5 flex size-24 items-center justify-center rounded-full border border-emerald-400/30 bg-zinc-900 font-mono text-2xl font-bold text-emerald-300 shadow-[0_0_45px_rgba(52,211,153,0.12)]"
-				role="img"
-				aria-label="Avatar de Diana Pinto"
-			>
-				DP
-			</div>
-			<p class="mb-2 font-mono text-sm tracking-wide text-emerald-400">~/profile</p>
+			<img
+				class="mx-auto mb-5 size-24 rounded-full border border-emerald-400/30 object-cover shadow-[0_0_45px_rgba(52,211,153,0.12)]"
+				src="/profile.jpg"
+				alt="Foto de perfil de Diana Pinto"
+				width="96"
+				height="96"
+			/>
 			<h1 id="profile-name" class="text-2xl font-bold tracking-tight text-white sm:text-3xl">
 				Diana Pinto
 			</h1>
 			<p class="mt-2 font-mono text-sm text-zinc-400">@soydianapinto</p>
-			<p class="mt-4 text-sm text-zinc-300 sm:text-base">Full-Stack Engineer &amp; Tech Content Creator</p>
+			<p class="mt-4 text-sm text-zinc-300 sm:text-base">Ingeniera Full-Stack &amp; Creadora de Contenido Tech</p>
+			<FollowerBadge />
 		</header>
 
 		<nav aria-label="Enlaces de Diana Pinto">
