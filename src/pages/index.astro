@@ -1,20 +1,73 @@
 ---
 import LinkTree from '../components/LinkTree.astro';
 import '../styles/global.css';
+
+const siteUrl = 'https://soydianapinto.github.io';
+const siteTitle = 'Diana Pinto | Full-Stack Engineer & Tech Creator';
+const siteDescription =
+	'Conoce a Diana Pinto, ingeniera Full-Stack y creadora de contenido tech. Encuentra sus redes sociales, proyectos y formas de contacto.';
+const socialImage = `${siteUrl}/diana-pinto-logo.png`;
+const personSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'ProfilePage',
+	name: 'Diana Pinto',
+	url: siteUrl,
+	description: siteDescription,
+	inLanguage: 'es',
+	image: socialImage,
+	mainEntity: {
+		'@type': 'Person',
+		name: 'Diana Pinto',
+		alternateName: '@soydianapinto',
+		url: siteUrl,
+		image: `${siteUrl}/profile.jpg`,
+		jobTitle: 'Ingeniera Full-Stack y Creadora de Contenido Tech',
+		sameAs: [
+			'https://www.instagram.com/soydianapinto/',
+			'https://www.facebook.com/soydianapinto/',
+			'https://www.linkedin.com/in/soydianapinto/',
+			'https://www.youtube.com/channel/UCcCb2sTaPgF4Cq7K17p4N3A',
+			'https://www.tiktok.com/@soydianapinto',
+			'https://github.com/soydianapinto',
+			'https://builder.aws.com/community/@soydianapinto/',
+		],
+	},
+};
 ---
 
 <html lang="es">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/png" href="/diana-pinto-logo.png" />
 		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<meta
-			name="description"
-			content="Enlaces de Diana Pinto, Full-Stack Engineer & Cloud Architect."
-		/>
-		<title>Diana Pinto | Links</title>
+	<meta name="theme-color" content="#171717" />
+	<meta name="author" content="Diana Pinto" />
+	<meta name="description" content={siteDescription} />
+	<meta name="robots" content="index, follow, max-image-preview:large" />
+	<link rel="canonical" href={siteUrl} />
+
+	<meta property="og:type" content="profile" />
+	<meta property="og:locale" content="es_MX" />
+	<meta property="og:site_name" content="Diana Pinto" />
+	<meta property="og:title" content={siteTitle} />
+	<meta property="og:description" content={siteDescription} />
+	<meta property="og:url" content={siteUrl} />
+	<meta property="og:image" content={socialImage} />
+	<meta property="og:image:alt" content="Logo personal de Diana Pinto" />
+	<meta property="og:image:type" content="image/png" />
+	<meta property="og:image:width" content="500" />
+	<meta property="og:image:height" content="500" />
+	<meta property="profile:first_name" content="Diana" />
+	<meta property="profile:last_name" content="Pinto" />
+	<meta property="profile:username" content="soydianapinto" />
+
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content={siteTitle} />
+	<meta name="twitter:description" content={siteDescription} />
+	<meta name="twitter:image" content={socialImage} />
+	<meta name="twitter:image:alt" content="Logo personal de Diana Pinto" />
+
+	<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 	</head>
 	<body>
 		<LinkTree />

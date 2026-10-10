@@ -7,13 +7,16 @@
 
 @layer base {
 	html {
-		background: #a89582;
+		background: #f9f6f0;
 	}
 
 	body {
 		margin: 0;
-		background: #a89582;
-		color: #242321;
+		background:
+			radial-gradient(circle at 8% 12%, rgba(0, 0, 0, 0.12), transparent 30%),
+			radial-gradient(circle at 92% 86%, rgba(0, 0, 0, 0.18), transparent 32%),
+			linear-gradient(135deg, #f8f8f8 0%, #eeeeee 52%, #ffffff 100%);
+		color: #171717;
 		font-family: var(--font-sans);
 	}
 }
