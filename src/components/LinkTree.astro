@@ -23,6 +23,16 @@ const links = [
 		description: 'Herramienta de código abierto',
 		href: 'https://github.com/soydianapinto/nextreview/',
 	},
+	{
+		sectionLabel: 'Menciones en mis videos',
+		label: 'Suscríbete a mi canal de Facebook',
+		href: 'https://www.facebook.com/soydianapinto/subscribe',
+	},
+	{
+		label: 'Gracias por tu apoyo',
+		description: 'Si te gusta mi contenido, puedes invitarme un cafesito',
+		href: 'https://www.paypal.com/paypalme/soydianapinto',
+	},
 	// TODO: Restore the Cold Brew link.
 ];
 ---
@@ -59,6 +69,11 @@ const links = [
 			<ul class="space-y-3">
 				{links.map((link) => (
 					<li>
+						{link.sectionLabel && (
+							<p class="mb-3 mt-7 text-center text-sm text-[#363636] sm:text-base">
+								{link.sectionLabel}
+							</p>
+						)}
 						<a
 							class="group flex min-h-16 items-center justify-between rounded-full border border-white/65 bg-white/30 px-5 py-3.5 text-[#171717] shadow-[0_8px_24px_rgba(0,0,0,0.14)] backdrop-blur-md transition-all duration-500 ease-out hover:-translate-y-1 hover:scale-[1.01] hover:border-white/90 hover:bg-white/50 hover:shadow-[0_14px_30px_rgba(0,0,0,0.22)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
 							href={link.href}
