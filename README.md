@@ -4,6 +4,8 @@ Personal website for Diana Pinto, built with Astro and Tailwind CSS.
 The interface uses a minimal dark theme inspired by terminal interfaces and
 developer-focused websites.
 
+[![Site status](https://img.shields.io/badge/site-running-2ea44f?style=flat-square)](https://soydianapinto.github.io/)
+
 ## Features
 
 - Mobile-first and responsive design.
