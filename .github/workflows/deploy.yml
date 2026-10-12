@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-  schedule:
-    # Run every day at midnight UTC to refresh the follower total.
-    - cron: '0 0 * * *'
   workflow_dispatch:
 
 # Permissions required to publish the generated site to GitHub Pages.
@@ -41,15 +38,6 @@ jobs:
         run: npm install
 
       - name: Build Astro site
-        env:
-          # TODO: Add and rotate these values in GitHub Repository Secrets.
-          INSTAGRAM_TOKEN: ${{ secrets.INSTAGRAM_TOKEN }}
-          FACEBOOK_TOKEN: ${{ secrets.FACEBOOK_TOKEN }}
-          THREADS_TOKEN: ${{ secrets.THREADS_TOKEN }}
-          X_TOKEN: ${{ secrets.X_TOKEN }}
-          LINKEDIN_PROXY_TOKEN: ${{ secrets.LINKEDIN_PROXY_TOKEN }}
-          YOUTUBE_TOKEN: ${{ secrets.YOUTUBE_TOKEN }}
-          TIKTOK_TOKEN: ${{ secrets.TIKTOK_TOKEN }}
         run: npm run build
 
       # Package dist/ as the artifact consumed by the deploy job.
