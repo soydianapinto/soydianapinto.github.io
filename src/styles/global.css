@@ -21,7 +21,7 @@
 			radial-gradient(circle at 8% 12%, rgba(0, 0, 0, 0.12), transparent 30%),
 			radial-gradient(circle at 92% 86%, rgba(0, 0, 0, 0.18), transparent 32%),
 			linear-gradient(135deg, #f8f8f8 0%, #eeeeee 52%, #ffffff 100%);
-		color: #171717;
+		color: var(--color-ink);
 		font-family: var(--font-sans);
 	}
 }
@@ -32,7 +32,7 @@
 	}
 
 	.profile-card {
-		@apply relative mx-auto w-full max-w-lg overflow-hidden rounded-3xl border border-black/20 p-5 shadow-xl transition-all duration-500 ease-out hover:shadow-2xl sm:p-8;
+		@apply relative mx-auto w-full max-w-lg overflow-hidden rounded-3xl border border-black/20 p-5 transition-all duration-500 ease-out sm:p-8;
 		background: linear-gradient(to bottom, #000000, #666666, #ffffff);
 		box-shadow: 0 20px 25px -5px rgb(0 0 0 / 25%);
 	}
@@ -102,7 +102,6 @@
 	.playlist-section iframe {
 		display: block;
 		width: 100%;
-		max-width: 100%;
 		border: 0;
 		border-radius: 1.5rem;
 	}

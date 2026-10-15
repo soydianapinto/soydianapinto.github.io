@@ -1,40 +1,7 @@
 ---
 import FollowerBadge from './FollowerBadge.astro';
 import SocialLinks from './SocialLinks.astro';
-
-const links = [
-	{
-		label: 'Colaboraciones y campañas',
-		description: 'Contacto para marcas',
-		href: 'mailto:depa.apolinar@gmail.com?subject=Colaboraci%C3%B3n%20con%20Diana%20Pinto',
-	},
-	{
-		label: 'AWS Community Builder',
-		description: 'Perfil de la comunidad AWS',
-		href: 'https://builder.aws.com/community/@soydianapinto/',
-	},
-	{
-		label: 'Mentorías / Tutorías',
-		description: 'Acompañamiento en tecnología',
-		href: 'https://www.paypal.com/ncp/payment/S9PN3T8F3NJVJ/',
-	},
-	{
-		label: 'Next Review',
-		description: 'Herramienta de código abierto',
-		href: 'https://github.com/soydianapinto/nextreview/',
-	},
-	{
-		sectionLabel: 'Menciones en mis videos',
-		label: 'Suscríbete a mi canal de Facebook',
-		href: 'https://www.facebook.com/soydianapinto/subscribe',
-	},
-	{
-		label: 'Gracias por tu apoyo',
-		description: 'Si te gusta mi contenido, puedes invitarme un cafesito',
-		href: 'https://www.paypal.com/paypalme/soydianapinto',
-	},
-	// TODO: Restore the Cold Brew link.
-];
+import { externalLinkAttrs, profile, profileLinks } from '../data/site';
 ---
 
 <main class="site-shell">
@@ -42,57 +9,46 @@ const links = [
 	<section class="profile-card" aria-labelledby="profile-name">
 		<div class="profile-overlay" aria-hidden="true"></div>
 		<div class="relative">
-		<header class="mb-8 text-center">
-			<img
-				class="profile-avatar"
-				src="/profile.jpg"
-				alt="Foto de perfil de Diana Pinto"
-				width="96"
-				height="96"
-			/>
-			<h1 id="profile-name" class="text-2xl font-bold tracking-tight text-white sm:text-3xl">
-				Diana Pinto
-			</h1>
-			<p class="mt-4 text-sm text-white/90 sm:text-base">Ingeniera Full-Stack &amp; Creadora de Contenido Tech</p>
-			<div class="mt-5 flex items-center justify-center gap-4">
-				<p class="font-mono text-sm text-white/80">@soydianapinto</p>
-				<FollowerBadge />
-			</div>
-		</header>
+			<header class="mb-8 text-center">
+				<img
+					class="profile-avatar"
+					src="/profile.jpg"
+					alt="Foto de perfil de Diana Pinto"
+					width="96"
+					height="96"
+				/>
+				<h1 id="profile-name" class="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+					{profile.name}
+				</h1>
+				<p class="mt-4 text-sm text-white/90 sm:text-base">{profile.headline}</p>
+				<div class="mt-5 flex items-center justify-center gap-4">
+					<p class="font-mono text-sm text-white/80">{profile.handle}</p>
+					<FollowerBadge />
+				</div>
+			</header>
 
-		<SocialLinks />
+			<SocialLinks />
 
-		<nav aria-label="Enlaces de Diana Pinto">
-			<ul class="space-y-3">
-				{links.map((link) => (
-					<li>
-						{link.sectionLabel && (
-							<p class="section-label">
-								{link.sectionLabel}
-							</p>
-						)}
-						<a
-							class="group link-button"
-							href={link.href}
-							target="_blank"
-							rel="noreferrer"
-						>
-							<span class="min-w-0">
-								<span class="block font-medium text-[#171717] transition-colors group-hover:text-black">
-									{link.label}
+			<nav aria-label="Enlaces de Diana Pinto">
+				<ul class="space-y-3">
+					{profileLinks.map((link) => (
+						<li>
+							{link.sectionLabel && <p class="section-label">{link.sectionLabel}</p>}
+							<a class="group link-button" href={link.href} {...externalLinkAttrs}>
+								<span class="min-w-0">
+									<span class="block font-medium text-ink transition-colors group-hover:text-black">
+										{link.label}
+									</span>
+									{link.description && (
+										<span class="mt-1 block text-xs text-muted">{link.description}</span>
+									)}
 								</span>
-								{link.description && (
-									<span class="mt-1 block text-xs text-[#363636]">{link.description}</span>
-								)}
-							</span>
-							<span class="ml-4 font-mono text-lg text-[#4a4a4a] transition-all duration-500 group-hover:translate-x-1 group-hover:text-black" aria-hidden="true">
-								&rarr;
-							</span>
-						</a>
-					</li>
-				))}
-			</ul>
-		</nav>
+								<span class="ml-4 font-mono text-lg text-subtle transition-all duration-500 group-hover:translate-x-1 group-hover:text-black" aria-hidden="true">&rarr;</span>
+							</a>
+						</li>
+					))}
+				</ul>
+			</nav>
 		</div>
 	</section>
 </main>

@@ -1,27 +1,23 @@
 ---
-const playlistUri = 'spotify:playlist:3KaA1cmL17vYQbxIBZ31Se';
-const playlistUrl = 'https://open.spotify.com/playlist/3KaA1cmL17vYQbxIBZ31Se';
+import ContentSection from './ContentSection.astro';
+import { externalLinkAttrs, spotifyPlaylist } from '../data/site';
 ---
 
-<section class="playlist-section content-section" aria-labelledby="playlist-title">
-	<div class="content-column">
-		<h2 id="playlist-title" class="section-title mb-2">Música</h2>
-		<p class="mb-4 text-center text-sm leading-5 text-subtle">La música que uso en mis videos de lipsync</p>
-		<div id="spotify-playlist"></div>
-		<p class="mt-4 text-center text-sm">
-			<a
-				class="text-muted underline decoration-black/20 underline-offset-4"
-				href={playlistUrl}
-				target="_blank"
-				rel="noreferrer"
-			>
-				Abrir en Spotify
-			</a>
-		</p>
-	</div>
-</section>
+<ContentSection labelledBy="playlist-title" class="playlist-section">
+	<h2 id="playlist-title" class="section-title mb-2">Música</h2>
+	<p class="mb-4 text-center text-sm leading-6">
+		<a
+			class="text-subtle underline decoration-current/40 underline-offset-4 transition-colors hover:text-ink"
+			href={spotifyPlaylist.url}
+			{...externalLinkAttrs}
+		>
+			Escucha en Spotify la música que uso en mis videos de lipsync
+		</a>
+	</p>
+	<div id="spotify-playlist"></div>
+</ContentSection>
 
-<script is:inline define:vars={{ playlistUri }}>
+<script is:inline define:vars={{ playlistUri: spotifyPlaylist.uri }}>
 	window.onSpotifyIframeApiReady = (IFrameAPI) => {
 		const element = document.getElementById('spotify-playlist');
 
@@ -32,14 +28,8 @@ const playlistUrl = 'https://open.spotify.com/playlist/3KaA1cmL17vYQbxIBZ31Se';
 				width: '100%',
 				height: 352,
 			},
-			(controller) => {
-				const iframe = document.querySelector('.playlist-section iframe');
-				if (iframe) iframe.loading = 'eager';
-
-				controller.addListener('ready', () => {
-					controller.play();
-				});
-			},
+			// Spotify mounts the playlist in this callback. Leave playback to the listener.
+			() => {},
 		);
 	};
 </script>

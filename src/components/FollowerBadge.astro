@@ -1,12 +1,9 @@
 ---
-const totalFollowers = 60174;
-// All 7 Social Media, last manually updated: October 12, 2026.
-const formattedTotal = `${(totalFollowers / 1000).toFixed(1)}k`;
+import { formatFollowers, profile } from '../data/site';
+
+const formattedTotal = formatFollowers(profile.followers);
 ---
 
-<p
-	class="inline-flex items-center gap-2 font-mono text-sm tracking-wide text-white/75"
-	aria-label={`${formattedTotal} seguidores`}
->
+<p class="inline-flex items-center font-mono text-sm tracking-wide text-white/75" aria-label={`${formattedTotal} seguidores`}>
 	<span><strong class="font-semibold text-white">{formattedTotal}</strong> seguidores</span>
 </p>
