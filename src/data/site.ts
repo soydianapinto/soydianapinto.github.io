@@ -93,11 +93,6 @@ export const profileLinks: ProfileLink[] = [
 		href: outbound.mentoring,
 	},
 	{
-		label: 'Next Review',
-		description: 'Herramienta de código abierto',
-		href: outbound.nextReview,
-	},
-	{
 		sectionLabel: 'Menciones en mis videos',
 		label: 'Suscríbete a mi canal de Facebook',
 		href: outbound.facebookSubscribe,
