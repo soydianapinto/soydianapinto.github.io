@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://soydianapinto.github.io/sitemap.xml
+Sitemap: https://soydianapinto.com/sitemap.xml

@@ -12,6 +12,7 @@
 @layer base {
 	html {
 		background: #f9f6f0;
+		overflow-x: clip;
 	}
 
 	body {
@@ -27,12 +28,11 @@
 
 @layer components {
 	.site-shell {
-		@apply relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-8 text-ink sm:px-8 sm:py-12;
-		background: #f8f8f8;
+		@apply relative px-4 pt-8 pb-12 text-ink sm:px-8 sm:pt-12 sm:pb-16;
 	}
 
 	.profile-card {
-		@apply relative w-full max-w-lg overflow-hidden rounded-3xl border border-black/20 p-5 shadow-xl transition-all duration-500 ease-out hover:shadow-2xl sm:p-8;
+		@apply relative mx-auto w-full max-w-lg overflow-hidden rounded-3xl border border-black/20 p-5 shadow-xl transition-all duration-500 ease-out hover:shadow-2xl sm:p-8;
 		background: linear-gradient(to bottom, #000000, #666666, #ffffff);
 		box-shadow: 0 20px 25px -5px rgb(0 0 0 / 25%);
 	}
@@ -74,8 +74,16 @@
 		@apply mb-3 mt-7 text-center text-sm text-muted sm:text-base;
 	}
 
-	.terminal-section {
-		@apply mx-auto w-full max-w-[34rem] px-4 pb-8 pt-8 sm:max-w-[36rem] sm:px-8 sm:pt-12;
+	.content-section {
+		@apply px-4 pb-12 sm:px-8 sm:pb-16;
+	}
+
+	.content-column {
+		@apply mx-auto w-full max-w-lg;
+	}
+
+	.section-title {
+		@apply text-center text-lg text-muted;
 	}
 
 	.terminal-card {
@@ -91,8 +99,12 @@
 		@apply overflow-x-auto p-5 sm:p-6;
 	}
 
-	.project-section {
-		@apply mx-auto w-full max-w-lg px-4 pb-12 sm:px-8;
+	.playlist-section iframe {
+		display: block;
+		width: 100%;
+		max-width: 100%;
+		border: 0;
+		border-radius: 1.5rem;
 	}
 
 	.project-card {

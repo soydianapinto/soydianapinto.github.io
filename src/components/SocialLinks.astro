@@ -2,12 +2,12 @@
 const socialLinks = [
 	{
 		label: 'Instagram',
-		icon: 'instagram',
+		src: '/icons/instagram.svg',
 		href: 'https://www.instagram.com/soydianapinto/',
 	},
 	{
 		label: 'Facebook',
-		icon: 'facebook',
+		src: '/icons/facebook.svg',
 		href: 'https://www.facebook.com/soydianapinto/',
 	},
 	{
@@ -17,17 +17,17 @@ const socialLinks = [
 	},
 	{
 		label: 'YouTube',
-		icon: 'youtube',
+		src: '/icons/youtube.svg',
 		href: 'https://www.youtube.com/channel/UCcCb2sTaPgF4Cq7K17p4N3A',
 	},
 	{
 		label: 'TikTok',
-		icon: 'tiktok',
+		src: '/icons/tiktok.svg',
 		href: 'https://www.tiktok.com/@soydianapinto',
 	},
 	{
 		label: 'GitHub',
-		icon: 'github',
+		src: '/icons/github.svg',
 		href: 'https://github.com/soydianapinto',
 	},
 ];
@@ -44,11 +44,10 @@ const socialLinks = [
 		>
 			<img
 				class="size-5"
-				src={social.src ?? `https://cdn.simpleicons.org/${social.icon}/FFFFFF`}
+				src={social.src}
 				alt=""
 				width="20"
 				height="20"
-				loading="lazy"
 			/>
 		</a>
 	))}

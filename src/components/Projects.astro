@@ -16,10 +16,11 @@ const projects = [
 ---
 
 <section
-	class="project-section"
+	class="content-section"
 	aria-labelledby="projects-title"
 >
-	<h2 id="projects-title" class="mb-4 text-center text-lg text-[#363636]">Proyectos</h2>
+	<div class="content-column">
+	<h2 id="projects-title" class="section-title mb-4">Proyectos</h2>
 	<div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
 		{projects.map((project) => (
 			<a
@@ -42,5 +43,6 @@ const projects = [
 				</ul>
 			</a>
 		))}
+	</div>
 	</div>
 </section>

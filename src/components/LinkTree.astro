@@ -39,7 +39,6 @@ const links = [
 
 <main class="site-shell">
 	<div class="pointer-events-none absolute -left-28 -top-28 size-72 rounded-full bg-black/10 blur-3xl" aria-hidden="true"></div>
-	<div class="pointer-events-none absolute -bottom-32 -right-24 size-80 rounded-full bg-black/15 blur-3xl" aria-hidden="true"></div>
 	<section class="profile-card" aria-labelledby="profile-name">
 		<div class="profile-overlay" aria-hidden="true"></div>
 		<div class="relative">
@@ -78,11 +77,13 @@ const links = [
 							target="_blank"
 							rel="noreferrer"
 						>
-							<span>
+							<span class="min-w-0">
 								<span class="block font-medium text-[#171717] transition-colors group-hover:text-black">
 									{link.label}
 								</span>
-								<span class="mt-1 block text-xs text-[#363636]">{link.description}</span>
+								{link.description && (
+									<span class="mt-1 block text-xs text-[#363636]">{link.description}</span>
+								)}
 							</span>
 							<span class="ml-4 font-mono text-lg text-[#4a4a4a] transition-all duration-500 group-hover:translate-x-1 group-hover:text-black" aria-hidden="true">
 								&rarr;

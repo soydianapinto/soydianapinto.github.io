@@ -1,0 +1,70 @@
+---
+const playlistUri = 'spotify:playlist:3KaA1cmL17vYQbxIBZ31Se';
+const playlistUrl = 'https://open.spotify.com/playlist/3KaA1cmL17vYQbxIBZ31Se';
+---
+
+<section class="playlist-section content-section" aria-labelledby="playlist-title">
+	<div class="content-column">
+		<h2 id="playlist-title" class="section-title mb-2">Música</h2>
+		<p class="mb-4 text-center text-sm leading-5 text-subtle">La música que uso en mis videos de lipsync</p>
+		<div id="spotify-playlist"></div>
+		<p class="mt-4 text-center text-sm">
+			<a
+				class="text-muted underline decoration-black/20 underline-offset-4"
+				href={playlistUrl}
+				target="_blank"
+				rel="noreferrer"
+			>
+				Abrir en Spotify
+			</a>
+		</p>
+	</div>
+</section>
+
+<script is:inline define:vars={{ playlistUri }}>
+	const section = document.querySelector('.playlist-section');
+	let started = false;
+
+	const startPlayer = () => {
+		if (started) return;
+		started = true;
+
+		const script = document.createElement('script');
+		script.src = 'https://open.spotify.com/embed/iframe-api/v1';
+		script.async = true;
+
+		window.onSpotifyIframeApiReady = (IFrameAPI) => {
+			const element = document.getElementById('spotify-playlist');
+
+			IFrameAPI.createController(
+				element,
+				{
+					uri: playlistUri,
+					width: '100%',
+					height: 352,
+				},
+				(controller) => {
+					controller.addListener('ready', () => {
+						controller.play();
+					});
+				},
+			);
+		};
+
+		document.body.appendChild(script);
+	};
+
+	if (!section || !('IntersectionObserver' in window)) {
+		startPlayer();
+	} else {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				if (!entries.some((entry) => entry.isIntersecting)) return;
+				observer.disconnect();
+				startPlayer();
+			},
+			{ rootMargin: '240px' },
+		);
+		observer.observe(section);
+	}
+</script>
